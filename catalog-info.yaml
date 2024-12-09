@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: quarkus-github-quay-gitops
+  description: This is GitOps manifest for quarkus-github-quay   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-name: quarkus-github-quay
+    backstage.io/kubernetes-id: quarkus-github-quay 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: quarkus-github-quay   
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:quarkus-github-quay
